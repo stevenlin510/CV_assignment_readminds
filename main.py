@@ -38,14 +38,16 @@ def main(args):
     args = TrainingArguments(
         output_dir=new_model_name,
         remove_unused_columns=False,
-        save_strategy="epoch",
+        eval_strategy="epoch",
         logging_strategy="epoch",
         learning_rate=args.learning_rate,
         warmup_ratio=0.1,
         prediction_loss_only=True,
         per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=args.batch_size,
         max_steps=(train_dataset.num_videos // args.batch_size) * num_epochs,
         push_to_hub=True,
+        eval_accumulation_steps=10
     )
 
     trainer = Trainer( 
