@@ -13,7 +13,7 @@ def run_inference(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name", default="LinStevenn/videomae-base-readminds", type=str, help='trained model')
+    parser.add_argument("--model_name", default="LinStevenn/videomae-base-readminds-assignment", type=str, help='trained model')
     parser.add_argument("--video_path", required=True, type=str)
     args = parser.parse_args()
 
