@@ -59,15 +59,19 @@ def main(args):
 
     train_results = trainer.train()
     trainer.push_to_hub()
-    print(trainer.state.log_history)
-    # log_history_df = pd.DataFrame(trainer.state.log_history)
-    # plt.figure(figsize=(10, 5))
-    # plt.plot(log_history_df['step'], log_history_df['loss'], label='Training Loss')
-    # plt.xlabel('Steps')
-    # plt.ylabel('Loss')
-    # plt.title('Training and Validation Loss Over Steps')
-    # plt.legend()
-    # plt.show()
+    # print(trainer.state.log_history)
+
+    plot_loss(trainer)
+
+def plot_loss(trainer):
+    log_history_df = pd.DataFrame(trainer.state.log_history)
+    plt.figure(figsize=(10, 5))
+    plt.plot(log_history_df['step'], log_history_df['loss'], label='Training Loss')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.title('Training Loss Over Epochs')
+    plt.legend()
+    plt.show()
 
 if __name__ == "__main__":
 
