@@ -54,9 +54,10 @@ def main(args):
         model,
         args,
         train_dataset=train_dataset,
+        eval_dataset=val_dataset,
         processing_class=img_processor,
         data_collator=collate_fn,
-
+        compute_metrics=compute_metrics,
     )   
 
     train_results = trainer.train()
