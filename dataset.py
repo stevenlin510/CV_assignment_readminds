@@ -2,7 +2,6 @@ import os
 import pathlib
 import pytorchvideo.data
 import imageio
-from IPython.display import Image
 from transformers import (
     VideoMAEImageProcessor,
     VideoMAEForVideoClassification

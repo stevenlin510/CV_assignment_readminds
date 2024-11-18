@@ -1,0 +1,8 @@
+transformers==4.46.2
+torch==2.5.1+cu121 
+pytorchvideo
+imageio
+argparse
+evaluate
+opencv-python
+Pillow
