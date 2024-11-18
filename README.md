@@ -5,7 +5,7 @@ This assignment is part of the Computer Vision course for the Fall 2024 semester
 
 ## Installation
 
-Ensure that the `python` environment is installed. Install the required packages using the following command:
+Ensure that the `python>=3.9` environment is installed. Install the required packages using the following command:
 
 ```bash
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
