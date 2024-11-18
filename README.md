@@ -1,7 +1,7 @@
 # Assignment 1: I can Read Your Mind
 
 ## Description
-This project implements a video classification model using the VideoMAE architecture. It mainly leverages the Hugging Face Transformers library to train a model on a custom dataset of videos. The task is designed to classify videos into different categories based on their drawing.
+This is an assignment from Computer Vision course in 2024 Fall semester. The ultimate goal for the program is able to determine the shape that is drawn by the user.
 
 ## Installation Instructions
 
@@ -11,20 +11,26 @@ Ensure `python` environment is installed. Install the required packages:
 pip3 install -r requirements.txt
 ```
 
-## Training
+## Train
 To finetune the pre-trained video classification model, run the following command in the terminal:
 
 ```bash
 python main.py --model_name <model-name>
 ```
-- Replace `<model-name>` with the pretrained model (e.g., `MCG-NJU/videomae-base`).
+- You can replace `<model-name>` with any desired pretrained model (e.g., `MCG-NJU/videomae-base`).
+- Please ensure the HuggingFace access token is initiate from your local computer. 
+```bash
+huggingface-cli login
+```
+- For shape detection, zero-shot image classification is used, therefore there is no need to train. 
 
 ## Inference
-During the inference, we take a video input. The streaming video is not yet supported. 
+During the inference, the readminds prediction and the shape detection will be conducted. The streaming video is not yet supported. 
 
 ```bash
 python inference.py --video <video_path>
 ```
+
 ### Dataset Structure
 The dataset that contains Prof. Baltes's videos and ours videos is organized as follows:
 ```
@@ -49,6 +55,7 @@ readmind_datasets/
             video1.mp4
         ...
 ```
+- Sample videos are given [here](./sample_gif).
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
