@@ -1,12 +1,10 @@
-import argparse
-import torch
 import cv2
-import numpy as np
+import argparse
 from PIL import Image
-from transformers import VideoMAEForVideoClassification, VideoMAEImageProcessor, pipeline
+from transformers import VideoMAEImageProcessor, pipeline
 from collections import Counter
 
-def readminds_prediction(model, video, image_processor):
+def readminds_prediction(video, image_processor):
     video_cls = pipeline(model="LinStevenn/videomae-base-readminds-assignment", 
                          device="cuda",
                          image_processor=image_processor)
@@ -56,24 +54,20 @@ if __name__ == "__main__":
     parser.add_argument("--model_name", default="LinStevenn/videomae-base-readminds-assignment", type=str, help='trained model')
     parser.add_argument("--video_path", required=True, type=str)
     args = parser.parse_args()
-
-    model = VideoMAEForVideoClassification.from_pretrained(
-        "./videomae-base-readminds-assignment", 
-        local_files_only=True) 
     
     image_processor = VideoMAEImageProcessor.from_pretrained(
-        "./videomae-base-readminds-assignment", 
-        local_files_only=True)
+        "LinStevenn/videomae-base-readminds-assignment", 
+ #       local_files_only=True)
+        )
     
     image_processor.size = {"height": 224, "width": 224}
 
-    prediction = readminds_prediction(model, 
-                              video=args.video_path, 
-                              image_processor=image_processor)
+    prediction = readminds_prediction(video=args.video_path, 
+                                      image_processor=image_processor)
     
     print(f"Final readmind prediction: {prediction}")
 
     shape_detection = shape_detector(args.video_path)
-    print("="*20)
+    print("="*40)
     print(f"Final shape prediction: {shape_detection}")
 

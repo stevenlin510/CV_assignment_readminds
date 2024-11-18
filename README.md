@@ -55,10 +55,7 @@ readmind_datasets/
             video1.mp4
         ...
 ```
-- Sample videos are given [here](./sample_gif).
+- Sample videos are given [here](https://github.com/stevenlin510/CV_assignment_readminds/tree/main/sample_gifs).
 
-## Contributing
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+## Acknowledgement
+This assignment is based on the codebase from [video_classification](https://huggingface.co/docs/transformers/tasks/video_classification) and [image_classifcation](https://huggingface.co/docs/transformers/tasks/zero_shot_image_classification)
