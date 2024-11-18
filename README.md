@@ -3,11 +3,13 @@
 ## Description
 This assignment is part of the Computer Vision course for the Fall 2024 semester. The ultimate goal of the program is to determine the shape drawn by the user.
 
-## Installation Instructions
+## Installation
 
 Ensure that the `python` environment is installed. Install the required packages using the following command:
 
 ```bash
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 pip3 install -r requirements.txt
 ```
 
@@ -63,6 +65,7 @@ readmind_datasets/
             ...
         ...
 ```
+- Please download the dataset from the sharable link.
 - Sample videos are available [here](https://github.com/stevenlin510/CV_assignment_readminds/tree/main/sample_gifs).
 
 ## Acknowledgements

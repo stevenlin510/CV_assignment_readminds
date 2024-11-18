@@ -38,7 +38,7 @@ def shape_detector(video):
     
     results = detector(test_images, candidate_labels=["triangle", "star", "wave", "square"])
     
-    # print(f"Shape prediction based on last 3 seconds: {results}")
+    # print(f"Shape prediction based on last 2 seconds: {results}")
     
     frame1_prediction = max(results[0], key=lambda x: x['score'])['label']
     frame2_prediction = max(results[1], key=lambda x: x['score'])['label']
@@ -64,10 +64,11 @@ if __name__ == "__main__":
 
     prediction = readminds_prediction(video=args.video_path, 
                                       image_processor=image_processor)
-    
-    print(f"Final readmind prediction: {prediction}")
+    print("="*(30+len(prediction)))
+    print(f"| Final readmind prediction: {prediction}|")
 
     shape_detection = shape_detector(args.video_path)
-    print("="*40)
-    print(f"Final shape prediction: {shape_detection}")
+    print("="*(27+len(shape_detection)))
+    print(f"| Final shape prediction: {shape_detection}|")
+    print("="*(27+len(shape_detection)))
 
